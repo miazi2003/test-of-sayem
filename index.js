@@ -61,17 +61,17 @@ async function run() {
       res.send(result)
     });
 
-
-
-
-
-     app.delete("/users/:id", async(req, res) => {
+    app.delete("/users/:id", async(req, res) => {
       const id = req.params.id;
       console.log("to be deleted : ", id);
-      const query ={_id : new ObjectId(id)}
-      const result = await userCollection.deleteOne(query)
+      const queryagain ={_id : new ObjectId(id)}
+      const result = await userCollection.deleteOne(queryagain)
       res.send(result)
     });
+    
+
+
+    
 
     await client.db("admin").command({ ping: 1 });
     console.log("pinged your deployment");
